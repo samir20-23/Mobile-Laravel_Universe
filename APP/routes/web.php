@@ -10,4 +10,4 @@ Route::get('/', function () {
     ->send(new HelloMail());
 });
 
-// web
+// web  test
