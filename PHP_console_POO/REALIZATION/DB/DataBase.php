@@ -1,6 +1,6 @@
 <?php
 
-
+// ###########
 class DataBase{
   public $array = [];
   public $path = '../DB/Database.text';
