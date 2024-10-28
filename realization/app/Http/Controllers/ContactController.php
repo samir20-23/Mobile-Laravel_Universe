@@ -15,17 +15,19 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email',
+            'phone' => 'required',
             'message' => 'required',
         ]);
 
-        Mail::raw("Nom: {$data['name']}\nEmail: {$data['email']}\nMessage: {$data['message']}", function ($message) use ($data) {
+        Mail::raw("first Name : {$data['firstname']}\nlast Name : {$data['lastname']}\nEmail: {$data['email']}\nphone: {$data['phone']}\nMessage: {$data['message']}", function ($message) use ($data) {
             $message->to('germanysamir1@gmail.com')
                 ->subject('Nouveau message de contact');
         });
 
-        return redirect('/')->with('success', 'Votre message a bien été envoyé.');
+        return redirect('/contact')->with('success', 'Votre message a bien été envoyé.');
 
         // x
     }
